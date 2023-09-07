@@ -81,3 +81,12 @@ button {
 .tac {
   text-align: center;
 }
+
+.card {
+  border: 1px solid #000;
+  padding: 15px;
+  border-radius: 8px;
+}
+.tomato {
+  background-color: pink;
+}

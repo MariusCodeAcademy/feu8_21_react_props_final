@@ -13,10 +13,10 @@ function SingleCard(props) {
   // <button>Do not click</button> paspaudimu iskviesti sayHi()
   // <button>Do not click</button> paspaudimu iskviesti sayHi() ir perduoti varda pzd "James"
   return (
-    <div>
+    <div className={`card ${props.isSpecial ? 'tomato' : ''}`}>
       <h2>title: {props.title}</h2>
       <p>{props.text}</p>
-      <button onClick={props.onHi}>Do not click</button>
+      <button onClick={() => props.onHi('James')}>Do not click</button>
     </div>
   );
 }
@@ -24,8 +24,8 @@ function SingleCard(props) {
 export default function App() {
   console.log('app');
 
-  function sayHi() {
-    console.log('hello there');
+  function sayHi(yourName) {
+    console.log(`hello there ${yourName}`);
   }
 
   return (
@@ -40,7 +40,12 @@ export default function App() {
         text='Is the first day'
         isSpecial={true}
       />
-      <SingleCard title='React' text='is not that dificult' count={50} />
+      <SingleCard
+        onHi={sayHi}
+        title='React'
+        text='is not that dificult'
+        count={50}
+      />
     </Container>
   );
 }
