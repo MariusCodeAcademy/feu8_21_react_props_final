@@ -8,7 +8,7 @@ function Container(props) {
 
 function SingleCard(props) {
   console.log('card');
-  console.log('props ===', props);
+  // console.log('props ===', props);
   //const props = {title: 'Monday', text: 'Is the first day'}
   // <button>Do not click</button> paspaudimu iskviesti sayHi()
   // <button>Do not click</button> paspaudimu iskviesti sayHi() ir perduoti varda pzd "James"
@@ -16,7 +16,7 @@ function SingleCard(props) {
     <div>
       <h2>title: {props.title}</h2>
       <p>{props.text}</p>
-      <button>Do not click</button>
+      <button onClick={props.onHi}>Do not click</button>
     </div>
   );
 }
@@ -27,13 +27,19 @@ export default function App() {
   function sayHi() {
     console.log('hello there');
   }
+
   return (
     <Container>
       <h1>New topic</h1>
       <p>hello </p>
       <button>Click</button>
       <hr />
-      <SingleCard title='Monday' text='Is the first day' isSpecial={true} />
+      <SingleCard
+        onHi={sayHi}
+        title='Monday'
+        text='Is the first day'
+        isSpecial={true}
+      />
       <SingleCard title='React' text='is not that dificult' count={50} />
     </Container>
   );
